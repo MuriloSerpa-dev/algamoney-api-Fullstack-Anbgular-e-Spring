@@ -55,7 +55,6 @@ public class CategoriaResource {
         public ResponseEntity<Categoria> buscarPeloCodigo(@PathVariable Long codigo){
          return categoriaRepository.findById(codigo).map(record -> ResponseEntity.ok().body(record)).
                  orElse(ResponseEntity.notFound().build());
-
             // Nesse metodo, vamos buscar pelo codigo do Path e conseguimos buscar a categoria
             // pelo codigo
         }
