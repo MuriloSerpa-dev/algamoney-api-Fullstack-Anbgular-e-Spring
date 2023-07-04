@@ -49,10 +49,12 @@ public class CategoriaResource {
             // Esse metodo e feito para um request ou quando um novo recurso foi criado e para recuperar esse
             // recurso criado
             return ResponseEntity.created(uri).body(categoriaSalva);
-            // Definindo o status
+            // Definindo o status code, e ja retornamos a categoria salva
         }
         @GetMapping("/{codigo}")
         public Optional<Categoria> buscarPeloCodigo(@PathVariable Long codigo){
             return categoriaRepository.findById(codigo);
+            // Nesse metodo, vamos buscar pelo codigo do Path e conseguimos buscar a categoria
+            // pelo codigo
         }
 }
