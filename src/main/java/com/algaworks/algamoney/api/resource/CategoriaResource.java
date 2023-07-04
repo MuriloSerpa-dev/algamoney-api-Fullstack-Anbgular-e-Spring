@@ -52,8 +52,10 @@ public class CategoriaResource {
             // Definindo o status code, e ja retornamos a categoria salva
         }
         @GetMapping("/{codigo}")
-        public Optional<Categoria> buscarPeloCodigo(@PathVariable Long codigo){
-            return categoriaRepository.findById(codigo);
+        public ResponseEntity<Categoria> buscarPeloCodigo(@PathVariable Long codigo){
+         return categoriaRepository.findById(codigo).map(record -> ResponseEntity.ok().body(record)).
+                 orElse(ResponseEntity.notFound().build());
+
             // Nesse metodo, vamos buscar pelo codigo do Path e conseguimos buscar a categoria
             // pelo codigo
         }
