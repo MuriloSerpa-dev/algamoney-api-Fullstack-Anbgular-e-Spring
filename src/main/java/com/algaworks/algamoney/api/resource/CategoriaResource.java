@@ -5,10 +5,12 @@ import com.algaworks.algamoney.api.repository.CategoriaRepository;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -37,7 +39,7 @@ public class CategoriaResource {
 
         @PostMapping
         // quero que retorne um http status 201Created
-    public ResponseEntity<Categoria> criar(@RequestBody Categoria categoria, HttpServletResponse response){ // RequestBody ja consegue pegar, a nova categoria criar
+    public ResponseEntity<Categoria> criar(@Valid @RequestBody Categoria categoria, HttpServletResponse response){ // RequestBody ja consegue pegar, a nova categoria criar
         // e transformar em um objeto
        Categoria categoriaSalva = categoriaRepository.save(categoria); // para salvar no banco de dados usamos
             // usamos a interface com os metodos e usamos o metodo SAVE e passamos a entidade, que objeto deve ser salvo
