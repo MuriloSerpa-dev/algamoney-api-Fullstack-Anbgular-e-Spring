@@ -41,12 +41,12 @@ public class CategoriaResource {
         // quero que retorne um http status 201Created
     public ResponseEntity<Categoria> criar(@Valid @RequestBody Categoria categoria, HttpServletResponse response){ // RequestBody ja consegue pegar, a nova categoria criar
         // e transformar em um objeto
-       Categoria categoriaSalva = categoriaRepository.save(categoria); // para salvar no banco de dados usamos
+       Categoria categoriaSalva = categoriaRepository.save(categoria); // para salvar no banco de dados
             // usamos a interface com os metodos e usamos o metodo SAVE e passamos a entidade, que objeto deve ser salvo
            URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{codigo}")
                     .buildAndExpand(categoriaSalva.getCodigo()).toUri();
            response.setHeader("Location", uri.toASCIIString());
-            // Quando eu crio algum recruso no banco de dados, o rest fala que devemos voltar no headres de resposta
+            // Quando eu crio algum recurso no banco de dados, o rest fala que devemos voltar no headres de resposta
             // para informar como recuperar esse recurso que foi criado no banco de dados
             // Esse metodo e feito para um request ou quando um novo recurso foi criado e para recuperar esse
             // recurso criado
@@ -58,6 +58,7 @@ public class CategoriaResource {
          return categoriaRepository.findById(codigo).map(record -> ResponseEntity.ok().body(record)).
                  orElse(ResponseEntity.notFound().build());
             // Nesse metodo, vamos buscar pelo codigo do Path e conseguimos buscar a categoria
-            // pelo codigo
+            // pelo codigo, esse metodo tem uma validação que se a busca tiver retorno devolve um 200ok
+            // se não retorno um 400 notfound
         }
 }

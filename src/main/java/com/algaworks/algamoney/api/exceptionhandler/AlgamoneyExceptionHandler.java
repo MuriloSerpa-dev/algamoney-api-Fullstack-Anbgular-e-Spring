@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@ControllerAdvice // Ele precisa dessa anotação, que diz que ele precisa observar toda a aplicação
+@ControllerAdvice // Ele precisa dessa anotação, para observar toda a aplicação
 public class AlgamoneyExceptionHandler extends ResponseEntityExceptionHandler {
     @Autowired
     private MessageSource messageSource;

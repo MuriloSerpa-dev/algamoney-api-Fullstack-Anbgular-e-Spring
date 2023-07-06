@@ -11,7 +11,7 @@ import java.util.Objects;
 @Table(name="Categoria")  // Damos o nome da tabela
 public class Categoria {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //Gerado apartir da tabela, toma conta da geracao do ocodigo
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Gerado apartir da tabela, toma conta da geracao do codigo
         private Long codigo;
         @NotNull // Ao usar essa anotação para a variavel nome, ela quer dizer que essa variavel não pode ser null,
         // e onde estou recebendo preciso adicionar uma anotacao Valid, no caso no metodo post, com isso ela muda o status para 400badrequest
