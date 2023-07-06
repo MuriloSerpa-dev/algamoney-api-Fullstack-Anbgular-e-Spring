@@ -2,21 +2,15 @@ package com.algaworks.algamoney.api.resource;
 
 import com.algaworks.algamoney.api.model.Categoria;
 import com.algaworks.algamoney.api.repository.CategoriaRepository;
-import jakarta.servlet.Servlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 @RestController // Usado para dizermos que somos um controlador Rest
 @RequestMapping("/categorias") // fazendo o mapeamento da aplicação, quando buscarmos categoria esse metodo é que
